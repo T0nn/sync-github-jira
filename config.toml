@@ -1,0 +1,44 @@
+listen-port = 32333
+
+github-username = "foo"
+github-password = "bar"
+
+jira-username = "foo"
+jira-password  = "bar"
+jira-baseurl = "https://www.atlassian.com/software/jira"
+
+use-lastsynctimefile = false
+github-sincetime = "2019-01-01T17:00:00+08:00"
+
+[repo]
+
+  # # TiDB
+
+  [repo.tidb]
+    github-owner = "pingcap"
+    jira-project = "TIDB"
+    jira-components = ["general"] # default components
+    jira-issuetype = "Task" # default issuetype
+    transition-map = { "To Do" = ["211"], "Done" = ["111", "181"] }
+    issuetype-label-map = {"type/enhancement" = "Improvement", "type/bug" = "Bug"}
+    component-label-map = {"component/planner" = "planner", "component/executor" = "executor", "component/statistics" = "statistics", "component/expression" = "expression"} # default is general
+  
+  # # TiKV
+
+  [repo.tikv]
+    github-owner = "pingcap"
+    jira-project = "TIKV"
+    jira-issuetype = "Task" 
+    jira-components = ["tikv"]
+    transition-map = { "To Do" = ["11"], "Done" = ["41"] }
+
+
+[affects-versions]
+   "TIDB" = ["3.0-alpha"]
+
+[fix-versions]
+   "TIDB" = ["3.0-alpha"]
+
+
+[assignee]
+admin = "admin@foobar.com"
